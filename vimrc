@@ -38,12 +38,12 @@ set hidden "hide buffers when they're abandoned
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
 	au!
-		" For all text files set 'textwidth' to 78 characters.
-		autocmd FileType text setlocal textwidth=78
-		" conceal latex file
-		autocmd Filetype tex setl conceallevel=1
-		" used for latex live preview
-		autocmd Filetype tex setl updatetime=1000
+	" For all text files set 'textwidth' to 78 characters.
+	autocmd FileType text setlocal textwidth=78
+	" conceal latex file
+	autocmd Filetype tex setl conceallevel=1
+	" used for latex live preview
+	autocmd Filetype tex setl updatetime=1000
 augroup END
 
 
