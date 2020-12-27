@@ -1,10 +1,13 @@
 " general vim config "
 set nocompatible
+
 set termguicolors " a MUST for base16 colorschemes
 syntax enable
 
 set number
 set cursorline
+set showmatch " show matching brackets
+set showcmd " show partial commands
 
 set cindent
 set tabstop=4
@@ -13,28 +16,34 @@ set shiftwidth=4
 
 set incsearch
 set hlsearch
-set showmatch
 
 set ignorecase " for search and tab completion
+set smartcase
+
 set encoding=utf-8
+set autowrite " auto write before :next, :make,...
+set nobackup
+set noundofile
 set history=1000
+
+" to learn
+set hidden "hide buffers when they're abandoned
+" set mouse=a " enable mouse on all modes
 "behave xterm
 "behave mswin
-"
-"set nobackup
-"set noundofile
+
 
 
 
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
-  au!
-	" For all text files set 'textwidth' to 78 characters.
-	autocmd FileType text setlocal textwidth=78
-	" conceal latex file
-	autocmd Filetype tex setl conceallevel=1
-	" used for latex live preview
-	autocmd Filetype tex setl updatetime=1000
+	au!
+		" For all text files set 'textwidth' to 78 characters.
+		autocmd FileType text setlocal textwidth=78
+		" conceal latex file
+		autocmd Filetype tex setl conceallevel=1
+		" used for latex live preview
+		autocmd Filetype tex setl updatetime=1000
 augroup END
 
 
