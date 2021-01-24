@@ -1,13 +1,19 @@
 " general vim config "
 set nocompatible
 
-set termguicolors " a MUST for base16 colorschemes
+if $TERM ==# 'linux'
+	set notermguicolors
+else
+	set termguicolors " for base16 colorschemes
+endif
+
 syntax enable
 
 set number
 set cursorline
 set showmatch " show matching brackets
 set showcmd " show partial commands
+set wildmenu
 
 set cindent
 set tabstop=4
@@ -28,7 +34,7 @@ set history=1000
 
 " to learn
 set hidden "hide buffers when they're abandoned
-" set mouse=a " enable mouse on all modes
+set mouse=a " enable mouse on all modes
 "behave xterm
 "behave mswin
 
@@ -51,12 +57,7 @@ augroup END
 " vim-plug and plugin config
 call plug#begin('~/.vim/plugged')
 
-"Panels{{{
-Plug 'godlygeek/tabular'
-Plug 'vim-airline/vim-airline'
-"}}}
-
-"Colorscheme{{{
+"Interface{{{
 " Plug 'altercation/vim-colors-solarized' " bad support for terminal vim
 Plug 'chriskempson/base16-vim'
 if !has('gui_running')
@@ -69,6 +70,21 @@ else
 	set guioptions-=r
 	set guifont=Fira\ Code\ weight=453\ 14
 endif
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='base16_solarized'
+
+Plug 'godlygeek/tabular'
+
+Plug 'sirver/ultisnips'
+"}}}
+
+
+"Integrations{{{
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree'
 "}}}
 
 
