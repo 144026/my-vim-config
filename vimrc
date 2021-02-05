@@ -13,7 +13,7 @@ set number
 set cursorline
 set showmatch " show matching brackets
 set showcmd " show partial commands
-set wildmenu
+set wildmenu " show a menu for selection after tab-completion
 
 set cindent
 set tabstop=4
@@ -46,10 +46,12 @@ augroup vimrcEx
 	au!
 	" For all text files set 'textwidth' to 78 characters.
 	autocmd FileType text setlocal textwidth=78
+	" LaTeX autocmds
 	" conceal latex file
 	autocmd Filetype tex setl conceallevel=1
 	" used for latex live preview
 	autocmd Filetype tex setl updatetime=1000
+	autocmd Filetype tex setl expandtab
 augroup END
 
 
